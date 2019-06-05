@@ -1,0 +1,64 @@
+
+
+.fade-enter-active, .fade-leave-active
+  transition: all 3s;
+
+.fade-enter, .fade-leave-to
+  opacity: 0;
+
+
+
+
+.slide-fade-enter-active {
+  transition: all .1s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.logo-preloader-con{
+  position fixed
+  width 100%
+  height 400px
+  display flex
+  align-items center
+  justify-content center
+  //background-color wheat
+}
+.logo-preloader{
+  animation fade-in .3s
+  //background-color red
+}
+
+.fade-enter,
+.fade-enter-to,
+.fade-enter-active,
+.fade-leave,
+.fade-leave-active,
+.fade-leave-to
+  transition: all .5s
+  opacity: 0;
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

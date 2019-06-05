@@ -1,0 +1,58 @@
+{
+  "name": "smart-rules",
+  "version": "0.1.0",
+  "description": "Smart Rules",
+  "productName": "ai homepage",
+  "cordovaId": "",
+  "author": "Gleb YP <dev@gleb.pw>, Nickame <nickame13@gmail.com>",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.vue src",
+    "dev": "DEV=true quasar dev",
+    "build": "DEV=false quasar build -m ssr",
+    "spa": "quasar build ",
+    "i": "NODE_ENV=production npm i",
+    "test": "DEV=true quasar build -m ssr -d && node ./dist/ssr/server",
+    "go": "quasar build -m ssr && node ./dist/ssr/server",
+    "start": "node ./dist/ssr/server",
+    "dock": "yarn add express  && node ./dist/ssr/server"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.1.2",
+    "alak": "^0.10.53",
+    "aof-air": "0.0.2",
+    "avuef": "^0.3.20",
+    "date-fns": "^1.30.1",
+    "express": "^4.16.4",
+    "lru-cache": "^5.1.1",
+    "quasar": "^1.0.0-beta.22",
+    "regenerator-runtime": "^0.13.2",
+    "vue": "^2.6.10",
+    "vue-observe-visibility": "^0.4.4",
+    "vue-server-renderer": "^2.6.10"
+  },
+  "devDependencies": {
+    "@quasar/app": "^1.0.0-beta.22",
+    "@vue/eslint-config-prettier": "^4.0.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-vue": "^5.2.2",
+    "pug": "^2.0.3",
+    "pug-loader": "^2.4.0",
+    "pug-plain-loader": "^1.0.0",
+    "strip-ansi": "=3.0.1",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0",
+    "yarn": ">= 1.6.0"
+  },
+  "browserslist": [
+    "last 1 version, not dead, ie >= 11"
+  ],
+  "resolutions": {
+    "ajv": "6.8.1"
+  }
+}
