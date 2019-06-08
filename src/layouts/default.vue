@@ -5,7 +5,6 @@
       router-view
     q-page-container(v-if="target" :is="target")
     dialog-login
-    dialog-json
 
 </template>
 

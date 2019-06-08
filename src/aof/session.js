@@ -10,7 +10,7 @@ import { N } from 'avuef'
 
 export default {
   nodes: {
-    endpoint: N.start('ws://localhost:8888/ws')
+    //endpoint: N.start('ws://localhost:8888/ws')
   },
   actions: {
     //thing(...a) {

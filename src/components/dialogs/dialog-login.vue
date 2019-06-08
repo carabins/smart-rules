@@ -46,11 +46,12 @@
 export default {
   name: "dialog-login",
   data: () => ({
-    show: false
+    show: false,
+    rune:""
   }),
   mapFlow: {
     show: "soul.dialogLogin",
-    rune: "session.rune",
+    // rune: "session.rune",
     user: "soul.user"
   }
 }

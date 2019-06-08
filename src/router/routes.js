@@ -9,6 +9,10 @@ const routes = [
     //effect: f => f.coins.filter('detected'),
     //ssrSync: 'coins.detected'
   }),
+  SyncRunedRoute('/doc', () => import('pages/Doc.vue'), l, {
+    //effect: f => f.coins.filter('detected'),
+    //ssrSync: 'coins.detected'
+  })
   //SyncRunedRoute('/new', () => import('pages/New.vue'), l, {
   //  //effect: f => f.coins.filter('detected'),
   //  //ssrSync: 'coins.detected'
