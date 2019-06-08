@@ -5,7 +5,9 @@ export default {
     route: N,
     path: N,
     target: N.v(false),
-    bar: N.v(false)
+    bar: N.v(false),
+    barLockHide: N,
+    barRotate: N,
   },
   actions: {}
 }

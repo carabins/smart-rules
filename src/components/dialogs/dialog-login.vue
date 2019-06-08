@@ -1,5 +1,5 @@
 <template lang="pug">
-  q-dialog(v-model="show" persistent)
+  //q-dialog(v-model="show" persistent)
     q-card(v-if="user")
       q-card-section
         .text-h6 Welcome {{user.First}} {{user.Second}}

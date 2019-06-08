@@ -1,5 +1,6 @@
 <template lang="pug">
-  div expert
+  .expert
+    q-btn(color="primary" label="Новая Форма" no-caps to="/expert/new")
 </template>
 
 <script>
@@ -8,4 +9,12 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="stylus">
+.expert
+  display flex
+  flex-direction row
+  justify-content center
+  align-items center
+  width 100%
+  padding-top 3rem
+</style>
