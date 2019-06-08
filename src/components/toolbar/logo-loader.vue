@@ -1,21 +1,22 @@
 <template lang="pug">
   .logo-preloader-con
     clef(
-    :class="{loadingSpinner:online}"
-    :showTarget="!online"
-    h="350" w="350")
+      :class="{loadingSpinner:online}"
+      :showTarget="!online"
+      h="350" w="350")
 </template>
 
 <script>
 import Clef from '../svg/clef'
+
 export default {
-  name: "logo-loader",
-  props: ["active"],
+  name: 'logo-loader',
+  props: ['active'],
   components: { Clef },
   mapFlow: {
-    online: "session.online"
+    online: 'session.online'
   }
-};
+}
 </script>
 
 <style scoped lang="stylus">
@@ -34,18 +35,22 @@ export default {
   background-color #a8abb0
   color white
   animation xshow 5s
+
 .xx
   padding 30px
   border-radius 30px
   opacity 0.5
+
 .xxx
   padding 10px
   border-radius 20px
   opacity 0.3
+
 .xxxx
   padding 50px 30px
   border-radius 40px
   opacity 0.2
+
 .xxxxx
   padding 70px 30px
   border-radius 40px

@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "right-drawer"
+  name: 'right-drawer'
 }
 </script>
 

@@ -1,4 +1,4 @@
-import { N } from "avuef"
+import { N } from 'avuef'
 
 export default {
   nodes: {
@@ -7,7 +7,7 @@ export default {
     dialogLogin: N
   },
   actions: {
-    checkRune( ) {
+    checkRune() {
       //if (!this.$f.session.rune.v) {
       //  this.$f.session.rune(newRune(34))
       //}

@@ -4,12 +4,11 @@
 </template>
 
 <script>
-
 export default {
   name: 'App'
 }
 </script>
 
 <style lang="stylus">
-  @import "css/app.styl"
+@import "css/app.styl"
 </style>

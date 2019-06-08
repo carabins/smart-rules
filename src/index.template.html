@@ -3,14 +3,31 @@
   <head>
     <title>Smart Rules</title>
 
-    <meta charset="utf-8">
-    <meta name="description" content="<%= htmlWebpackPlugin.options.productDescription %>">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width<% if (htmlWebpackPlugin.options.ctx.mode.cordova) { %>, viewport-fit=cover<% } %>">
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="<%= htmlWebpackPlugin.options.productDescription %>"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width<% if (htmlWebpackPlugin.options.ctx.mode.cordova) { %>, viewport-fit=cover<% } %>"
+    />
     <!--<link rel="icon" href="statics/quasar-logo.png" type="image/x-icon">-->
-    <link rel="icon" type="image/png" sizes="32x32" href="statics/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="statics/icons/favicon-16x16.png">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="statics/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="statics/icons/favicon-16x16.png"
+    />
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
     <script language="JavaScript">
       'use strict'
       //function lls(s, f) {
@@ -31,13 +48,14 @@
       //lls("statics/js/es6-shim.min.js")
       //lls("statics/js/weakmap.js")
       //lls("https://cdn.jsdelivr.net/npm/symbol-es6/dist/symbol-es6.min.js")
-      if (!Object.values) Object.values = function (o){
-        return Object.keys(o).map(function(k){
-          return ko[k]
-        });
-      }
+      if (!Object.values)
+        Object.values = function(o) {
+          return Object.keys(o).map(function(k) {
+            return ko[k]
+          })
+        }
 
-      if (typeof Proxy !== "undefined" && typeof Proxy.create !== "undefined") {
+      if (typeof Proxy !== 'undefined' && typeof Proxy.create !== 'undefined') {
         //var p = document.createElement("p")
         //p.write(<p>'you browser is unsupported'</p>);
       }

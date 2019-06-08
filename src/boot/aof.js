@@ -22,7 +22,7 @@ export default function({ router }) {
   //SyncRoute(router)
   if (!isBrowser) return
   aof.f.dash.route.on(x => {
-    console.log({x})
+    console.log({ x })
     router.push(x)
   })
 }

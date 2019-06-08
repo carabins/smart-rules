@@ -9,21 +9,21 @@
         no-caps
         exact
         )
-          .gt-xs Основное
+          .gt-xs О продукте
           .xs О
         q-route-tab(
-        to="/"
+        to="/expert"
         no-caps
         exact
         )
-          .gt-xs Облака
+          .gt-xs Эксперт
           .xs О.
         q-route-tab(
         to="/"
         no-caps
         exact
         )
-          .gt-xs Другое
+          .gt-xs Оператор
           .xs Д.
       q-space
       q-btn-group(flat)

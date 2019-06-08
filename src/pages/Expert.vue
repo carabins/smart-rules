@@ -1,10 +1,10 @@
 <template lang="pug">
-  div ok
+  div expert
 </template>
 
 <script>
 export default {
-  name: 'Doc'
+  name: 'Expert'
 }
 </script>
 

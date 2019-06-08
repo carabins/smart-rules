@@ -12,6 +12,7 @@
     "build": "DEV=false quasar build -m ssr",
     "spa": "quasar build ",
     "i": "NODE_ENV=production npm i",
+    "pre": "prettier --single-quote src/**/* --write",
     "test": "DEV=true quasar build -m ssr -d && node ./dist/ssr/server",
     "go": "quasar build -m ssr && node ./dist/ssr/server",
     "start": "node ./dist/ssr/server",

@@ -3,4 +3,3 @@ export const setCssVar = (name, value) => {
     document.documentElement.style.setProperty(name, value)
   }
 }
-

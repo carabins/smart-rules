@@ -44,15 +44,15 @@
 
 <script lang="ts">
 export default {
-  name: "dialog-login",
+  name: 'dialog-login',
   data: () => ({
     show: false,
-    rune:""
+    rune: ''
   }),
   mapFlow: {
-    show: "soul.dialogLogin",
+    show: 'soul.dialogLogin',
     // rune: "session.rune",
-    user: "soul.user"
+    user: 'soul.user'
   }
 }
 </script>
