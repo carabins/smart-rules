@@ -2,7 +2,7 @@ import { N } from 'avuef'
 
 export default {
   nodes: {
-    last: N.stored.start("x")
+    last: N.stored.start('x')
   },
   actions: {
     checkRune() {

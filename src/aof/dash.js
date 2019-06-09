@@ -7,7 +7,7 @@ export default {
     target: N.v(false),
     bar: N.v(false),
     barLockHide: N,
-    barRotate: N,
+    barRotate: N
   },
   actions: {}
 }

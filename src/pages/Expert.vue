@@ -1,6 +1,6 @@
 <template lang="pug">
   .expert
-    q-btn(color="primary" label="Новая Форма" no-caps to="/expert/new")
+    q-btn(color="primary" label="Новый шаблон" no-caps to="/expert/new")
 </template>
 
 <script>
