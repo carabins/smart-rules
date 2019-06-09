@@ -1,0 +1,38 @@
+M:\Visual Studio 2015\Repos\Server\Server\Server\bin\Debug\Server.exe.config
+M:\Visual Studio 2015\Repos\Server\Server\Server\bin\Debug\Server.exe
+M:\Visual Studio 2015\Repos\Server\Server\Server\bin\Debug\Server.pdb
+M:\Visual Studio 2015\Repos\Server\Server\Server\bin\Debug\Flurl.dll
+M:\Visual Studio 2015\Repos\Server\Server\Server\bin\Debug\Flurl.Http.dll
+M:\Visual Studio 2015\Repos\Server\Server\Server\bin\Debug\HtmlAgilityPack.dll
+M:\Visual Studio 2015\Repos\Server\Server\Server\bin\Debug\NATS.Client.dll
+M:\Visual Studio 2015\Repos\Server\Server\Server\bin\Debug\Newtonsoft.Json.dll
+M:\Visual Studio 2015\Repos\Server\Server\Server\bin\Debug\Flurl.xml
+M:\Visual Studio 2015\Repos\Server\Server\Server\bin\Debug\Flurl.Http.xml
+M:\Visual Studio 2015\Repos\Server\Server\Server\bin\Debug\HtmlAgilityPack.pdb
+M:\Visual Studio 2015\Repos\Server\Server\Server\bin\Debug\HtmlAgilityPack.xml
+M:\Visual Studio 2015\Repos\Server\Server\Server\bin\Debug\NATS.Client.xml
+M:\Visual Studio 2015\Repos\Server\Server\Server\bin\Debug\Newtonsoft.Json.xml
+M:\Visual Studio 2015\Repos\Server\Server\Server\obj\Debug\Server.csprojAssemblyReference.cache
+M:\Visual Studio 2015\Repos\Server\Server\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+M:\Visual Studio 2015\Repos\Server\Server\Server\obj\Debug\Server.csproj.CopyComplete
+M:\Visual Studio 2015\Repos\Server\Server\Server\obj\Debug\Server.exe
+M:\Visual Studio 2015\Repos\Server\Server\Server\obj\Debug\Server.pdb
+C:\Programs\Projects\Server\Server\bin\Debug\Server.exe.config
+C:\Programs\Projects\Server\Server\bin\Debug\Server.exe
+C:\Programs\Projects\Server\Server\bin\Debug\Server.pdb
+C:\Programs\Projects\Server\Server\bin\Debug\Flurl.dll
+C:\Programs\Projects\Server\Server\bin\Debug\Flurl.Http.dll
+C:\Programs\Projects\Server\Server\bin\Debug\HtmlAgilityPack.dll
+C:\Programs\Projects\Server\Server\bin\Debug\NATS.Client.dll
+C:\Programs\Projects\Server\Server\bin\Debug\Newtonsoft.Json.dll
+C:\Programs\Projects\Server\Server\bin\Debug\Flurl.xml
+C:\Programs\Projects\Server\Server\bin\Debug\Flurl.Http.xml
+C:\Programs\Projects\Server\Server\bin\Debug\HtmlAgilityPack.pdb
+C:\Programs\Projects\Server\Server\bin\Debug\HtmlAgilityPack.xml
+C:\Programs\Projects\Server\Server\bin\Debug\NATS.Client.xml
+C:\Programs\Projects\Server\Server\bin\Debug\Newtonsoft.Json.xml
+C:\Programs\Projects\Server\Server\obj\Debug\Server.csprojAssemblyReference.cache
+C:\Programs\Projects\Server\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Programs\Projects\Server\Server\obj\Debug\Server.csproj.CopyComplete
+C:\Programs\Projects\Server\Server\obj\Debug\Server.exe
+C:\Programs\Projects\Server\Server\obj\Debug\Server.pdb
