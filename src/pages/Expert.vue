@@ -1,13 +1,16 @@
 <template lang="pug">
   .expert
     q-btn(color="primary" label="Новый шаблон" no-caps to="/expert/new")
-    //pre {{JSON.stringify(forms[0].values)}}
+    forms-list
+
 </template>
 
 <script>
+import FormsList from '../components/forms-list'
 export default {
   name: 'Expert',
-  mapFlow:{
+  components: { FormsList },
+  mapFlow: {
     forms:'docs.forms'
   }
 }
@@ -16,7 +19,7 @@ export default {
 <style scoped lang="stylus">
 .expert
   display flex
-  flex-direction row
+  flex-direction column
   justify-content center
   align-items center
   width 100%

@@ -1,10 +1,14 @@
 <template lang="pug">
-  .operator ss
+  .operator
+    forms-list
+    #output
 </template>
 
 <script>
+import FormsList from '../components/forms-list'
 export default {
   name: 'Operator',
+  components: { FormsList },
   data() {
     return {
       contractNumber: '№111111',
@@ -13,15 +17,20 @@ export default {
       name: null,
       age: null,
       accept: false,
-      last: ''
+      last: '',
+      selected: null
     }
   },
   onFlow: {
-    'docs.last'(v) {
-      //console.log({v})
-      //if (!v) return
-      ////document.getElementById('output').innerHTML = v
-      //this.last = v
+    'dash.selectForm'(v) {
+      this.selected = v
+      if (!v) return
+      this.last = v
+      let doc = new DOMParser().parseFromString(v.doc, 'text/html')
+      this.$nextTick(() => {
+        let o = document.getElementById('output')
+        doc.body.childNodes.forEach(x => o.appendChild(x))
+      })
     }
   },
 
