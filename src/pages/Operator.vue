@@ -53,24 +53,29 @@
 </template>
 
 <script>
-
 export default {
   name: 'Operator',
   data() {
     return {
+<<<<<<< HEAD
       contractNumber:"№111111",
       contractDate:"01.01.2019",
       city : 'Крыжопль',
       customerOrganization : "ооо огого",
       customerRepresentative : "boss",
+=======
+      contractNumber: '№111111',
+      contractDate: '01.01.2019',
+      city: '',
+>>>>>>> d1309b2495d1e0801c89ca546819fae14388c545
       name: null,
       age: null,
       accept: false,
       last: ''
     }
   },
-  onFlow:{
-    'docs.last'(v){
+  onFlow: {
+    'docs.last'(v) {
       //console.log({v})
       if (!v) return
       //document.getElementById('output').innerHTML = v
@@ -79,10 +84,10 @@ export default {
   },
 
   methods: {
-    selectBlock(e){
+    selectBlock(e) {
       //document.getElementById("x").childNodes
       //e.target.classList.add('selected')
-      console.log(e.target.style.display = 'hidden')
+      console.log((e.target.style.display = 'hidden'))
       //console.log(e.target.classList.add('selected'))
     },
     onSubmit() {
@@ -102,9 +107,7 @@ export default {
         })
       }
     },
-    chooseCity(){
-
-    },
+    chooseCity() {},
     onReset() {
       this.name = null
       this.age = null
@@ -133,5 +136,4 @@ export default {
   .selected
     background-color yellow
     visibility hidden !important
-
 </style>
