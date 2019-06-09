@@ -38,10 +38,11 @@
                 :label="value.name")
                 q-card
                   q-card-section
-                    q-select(v-model="value.tags"
+                    q-select(:value="varModel"
+                      selectable
                             :options="tags"
                             color='secondary'
-                            use-input use-chips multiple
+                            use-input use-chips
                             input-debounce="0").fa-bold.text-bold
                   q-card-section
                     q-btn(label="Справочники" no-caps).full-width
@@ -73,9 +74,19 @@ let AnchoredHeading = Vue.component('anchored-heading', {
 
 export default {
   name: 'Expert',
+  watch: {
+    varModel(v) {
+      console.log('varModel', v)
+    }
+  },
   data() {
     return {
-      tags:['Оповещать о изменениях', 'Привязка к справочникам', 'Только заголовок', 'Нормативные документы'],
+      tags: [
+        'Оповещать о изменениях',
+        'Привязка к справочникам',
+        'Только заголовок',
+        'Нормативные документы'
+      ],
       varModel: null,
       name: null,
       age: null,
@@ -102,7 +113,7 @@ export default {
         let doc = document.getElementById('output').outerHTML
         console.log(doc)
         l.push({
-          name: 'Новая форма',
+          name: this.name,
           doc,
           values: this.values
         })
@@ -217,17 +228,16 @@ export default {
       let rune = newRune(8)
       this.selectedEl.id = rune
       this.target.rune = rune
+
       this.values.push({
-        value: this.varModel,
+        value: this.vars[0],
         target: this.target
       })
+      console.log('x', this.varModel)
       if (this.values.length > 1) {
         this.$f.docs.canEnd(true)
       }
-      this.target = null
-
-      console.log("???? wtf?")
-
+      //this.target = null
     }
   }
 }

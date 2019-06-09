@@ -13,7 +13,7 @@ Vue.use(VueRouter)
 export default function() {
   const Router = new VueRouter({
     scrollBehavior: () => ({ y: 0 }),
-    routes,
+    routes
   })
   return Router
 }

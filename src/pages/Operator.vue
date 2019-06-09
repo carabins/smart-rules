@@ -7,6 +7,7 @@
         .answers
           .answer(v-for="v in selected.values")
             b {{v.value.question}}
+            //pre {{v}}
             q-input(outlined v-model="v.mod" @change="changed(v)" :label="v.value.name")
         #output
 </template>
@@ -18,9 +19,6 @@ export default {
   components: { FormsList },
   data() {
     return {
-
-
-
       accept: false,
       last: '',
       selected: null
@@ -40,50 +38,20 @@ export default {
   },
 
   methods: {
-    changed(o){
+    changed(o) {
       let el = document.getElementById(o.target.rune)
 
-    //  zesult.concat(o.mod)
+      //  zesult.concat(o.mod)
       //.concat(el.textContent.substring(target.s))
-      console.log("**o.target.rune**"+o.target.rune)
-      console.log("**el**"+el)
-      let str1=''+el.innerHTML 
-      console.log(str1);
-      let result=str1.substring(0,o.target.s)+o.mod+str1.substring(o.target.e, str1.length)
-      el.textContent = result
-
-    },
-    editDoc(id, text, s, e) {
+      console.log('**o.target.rune**' + o.target.rune)
+      console.log('**el**' + el)
+      let str1 = el.textContent
+      console.log(str1)
+      let p1 = str1.substring(0, o.target.s)
+      console.log({ p2 })
+      let p2 = str1.substring(o.target.s + o.mod.length)
+      el.textContent = p1 + o.mod + p2
     }
-    //selectBlock(e) {
-    //  //document.getElementById("x").childNodes
-    //  //e.target.classList.add('selected')
-    //  console.log((e.target.style.display = 'hidden'))
-    //  //console.log(e.target.classList.add('selected'))
-    //},
-    //onSubmit() {
-    //  if (this.accept !== true) {
-    //    this.$q.notify({
-    //      color: 'red-5',
-    //      textColor: 'white',
-    //      icon: 'fas fa-exclamation-triangle',
-    //      message: 'You need to accept the license and terms first'
-    //    })
-    //  } else {
-    //    this.$q.notify({
-    //      color: 'green-4',
-    //      textColor: 'white',
-    //      icon: 'fas fa-check-circle',
-    //      message: 'Submitted'
-    //    })
-    //  }
-    //},
-
-    //onReset() {
-    //  this.name = null
-    //  this.age = null
-    //  this.accept = false
-    //}
   }
 }
 </script>
