@@ -79,20 +79,20 @@ export default {
     vars: 'docs.vars'
   },
   onFlow: {
-    'docs.doEnd'(){
-      console.log("?")
+    'docs.doEnd'() {
+      console.log('?')
       this.$f.docs.canEnd(false)
-      this.$f.docs.forms.mutate(l=>{
-        let doc =  document.getElementById('output').innerHTML
+      this.$f.docs.forms.mutate(l => {
+        let doc = document.getElementById('output').innerHTML
         console.log(doc)
         l.push({
-          name:"Новая форма",
+          name: 'Новая форма',
           doc,
           values: this.values
         })
         return l
       })
-      this.$router.push("/expert")
+      this.$router.push('/expert')
     },
     'docs.last'(v) {
       if (!v) return
@@ -183,7 +183,7 @@ export default {
     justEditText() {
       this.editPrompt = true
     },
-    finishEdit(){
+    finishEdit() {
       this.selectedEl.textContent = this.editText
     },
     selectBlock(e) {
@@ -206,7 +206,7 @@ export default {
         value: this.varModel,
         target: this.target
       })
-      if (this.values.length>1) {
+      if (this.values.length > 1) {
         this.$f.docs.canEnd(true)
       }
     }

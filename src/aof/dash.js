@@ -8,7 +8,7 @@ export default {
     bar: N.v(false),
     barLockHide: N,
     barRotate: N,
-    selectForm: N,
+    selectForm: N
   },
   actions: {}
 }

@@ -11,7 +11,7 @@ export default {
   name: 'Expert',
   components: { FormsList },
   mapFlow: {
-    forms:'docs.forms'
+    forms: 'docs.forms'
   }
 }
 </script>

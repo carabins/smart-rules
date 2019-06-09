@@ -11,14 +11,12 @@
 </template>
 
 <script>
-  export default {
-    name: 'forms-list',
-    mapFlow:{
-      forms: "docs.forms"
-    }
+export default {
+  name: 'forms-list',
+  mapFlow: {
+    forms: 'docs.forms'
   }
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

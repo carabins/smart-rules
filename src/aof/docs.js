@@ -2,12 +2,12 @@ import { N } from 'avuef'
 
 const variables = {
   contractNumber: {
-    type : "Number",
+    type: 'Number',
     name: 'Номер контракта',
     question: 'Введите номер контракта'
   }, //номер контракта
   contractDate: {
-    type : "Date",
+    type: 'Date',
     name: 'Дата контракта',
     question: 'Введите дату заключения контракта'
   }, //Дата  заключение контракта
@@ -16,7 +16,7 @@ const variables = {
   //customerRepresentative :{tape: "List", list :["диектор Иванов И.И.","замдиректора Петров П.П.","завхоз Сидоров С.С."],name :"Руководитель" , question : "Введите должность, фамилию, имя, отчество(при наличии) представителя заказчика"},
   //customercertificateOfAuthority:{tape: "List", list :["доверенность","устав","другое"],name :"Доверенность или другое" , question : "Введите название и реквизиты правового акта, удостоверяющего полномочия  представителя заказчика"},
   executor: {
-    type: "String",
+    type: 'String',
     name: 'Организация исполнитель',
     question:
       'Введите наименование организации, осуществляющей образовательную деятельность '
@@ -27,13 +27,14 @@ const variables = {
   //registrationNumber : {type : "Number", name : "Рег.номер", question :"Введите регистрационный номер в реестре организаций, оказывающих   услуги   в   области    охраны   труда по обучению работодателей и работников вопросам охраны труда"},
   //registrationNumberDate :{type: "Date", name : "Дата", question : "Введите дату получения регистрационного номера"},
   executiveRepresentative: {
-    type: "String",
+    type: 'String',
     name: 'Представитель исполнителя',
     question:
       'Введите должность, фамилия, имя, отчество (при наличии) представителя исполнителя'
   }, // ФИО исполнителя
   executorCertificateOfAuthority: {
-    tape: "List", list :["доверенность","устав","другое"],
+    tape: 'List',
+    list: ['доверенность', 'устав', 'другое'],
     name: 'Довереность или другое',
     question:
       'Введите название и реквизиты правового  акта, удостоверяющего полномочия представителя исполнителя'
@@ -46,98 +47,102 @@ const variables = {
   //contracBasisNumber :{type : "Number",name :"номер основания" , question : "Введите номер основания для закупки"},
   //contracBasisDate :{type: "Date", name :"Дата основания" , question : "Введите дату основания для закупки"},
   programName: {
-    type: "String",
+    type: 'String',
     name: 'Название программы',
     question: 'Введите название образовательной программы'
   },
   numberOfStudents: {
-    type : "Number",
+    type: 'Number',
     name: 'Коичество студентов',
     question:
       'Введите количество Обучающихся, подлежащих обучению по Программе - цифрами(прописью)'
   },
   numberOfStages: {
-    type : "Number",
+    type: 'Number',
     name: 'Коичество этапов',
     question:
       'Введите количество этапов в соответствии с календарным планом оказания Услуг'
   },
-  endDate: {type: "Date",  name: 'Дата', question: 'Введите дату окончания оказания услуг' },
+  endDate: {
+    type: 'Date',
+    name: 'Дата',
+    question: 'Введите дату окончания оказания услуг'
+  },
   serviceLocation: {
-    type: "String",
+    type: 'String',
     name: 'Место оказания услуг',
     question: 'Укажите место оказания услуг'
   },
   reportDate: {
-    type : "Number",
+    type: 'Number',
     name: 'Срок сдачи отчета',
     question:
       'Укажите срок сдачи отчета либо сроки по каждому этапу оказания Услуг'
   },
   contractPrice: {
-    type : "Number",
+    type: 'Number',
     name: 'Цена контракта',
     question: 'Укажите цену контракта -цифрами(прописью)- руб -цифрами- коп.'
   },
   valueAddedTax: {
-    type : "Number",
+    type: 'Number',
     name: 'НДС в процентах',
     question: 'Укажите налог на добавленную стоимость ___процентов'
   },
   valueAddedTaxCash: {
-    type : "Number",
+    type: 'Number',
     name: 'НДС',
     question:
       'Укажите цену налога на добавленную стоимость -цифрами(прописью)- руб -цифрами- коп.'
   },
   oneStudentPrce: {
-    type : "Number",
+    type: 'Number',
     name: 'Стоимость',
     question:
       'Укажите стоимость обучения одного обучающегося -цифрами(прописью)- руб -цифрами- коп.'
   },
   priceOfStage: {
-    type : "Number",
+    type: 'Number',
     name: 'Стоимость',
     question:
       'Укажите стоимость обучения по 1 этапу -цифрами(прописью)- руб -цифрами- коп.'
   },
   advancePayment: {
-    type : "Number",
+    type: 'Number',
     name: 'Аванс',
     question:
       'Укажите рзмер авансового платежа в процентах от цены контракта 1 -го этапа оказания услуг'
   },
   advancePaymentCash: {
-    type : "Number",
+    type: 'Number',
     name: 'Аванс',
     question:
       'Укажите размер авансового платежа в  рублях  -цифрами(прописью)- руб -цифрами- коп'
   },
   daysToPay: {
-    type : "Number",
+    type: 'Number',
     name: 'Коичество дней',
     question:
       'Укажите количество дней для внесения аванса после предоставления Исполнителем счета'
   },
   outsoursing: {
-    type : "Number",
+    type: 'Number',
     name: 'Процент соисполнителям',
     question: 'Укажите процент от цены контракта на привлечение соисполнителей'
   },
   receivingResults: {
-    type : "Number",
+    type: 'Number',
     name: 'Коичество дней',
     question: 'Укажите количество дней на приемку результата заказчиком'
   },
   claims: {
-    type : "Number",
+    type: 'Number',
     name: 'Коичество дней',
     question:
       'Укажите количество дней на отправку мотивированного отказа подписания акта сдачи приемки'
   },
   reconciliation: {
-    type : "Number",
+    type: 'Number',
     name: 'Коичество дней',
     question:
       'Укажите количество дней на предоставление акта сверки расчетов по контракту'
@@ -154,11 +159,9 @@ export default {
         return o
       })
     ),
-    forms:N.stored.start([]),
+    forms: N.stored.start([]),
     canEnd: N.start(false),
     doEnd: N.stateless
   },
-  actions: {
-  }
-
+  actions: {}
 }
