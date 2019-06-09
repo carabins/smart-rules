@@ -3,15 +3,14 @@
     q-dialog(v-model="editPrompt" persistent)
       q-card(style="min-width: 400px")
         q-card-section
-          .column Your address
+          .column Править текст
         q-card-section
           q-input( filled
+
           autogrow dense v-model="editText" autofocus @keyup.enter="prompt = false")
         q-card-actions(align="right" class="text-primary")
           q-btn(flat label="Сохранить" v-close-popup @click="finishEdit()")
           q-btn(flat label="Отмена" v-close-popup )
-    p Имя шаблона
-    q-input(type="text" v-model="templateName")
     q-drawer(
       v-model="drawer"
       :width="200"
@@ -30,7 +29,7 @@
               :options="vars"
               option-label="name"
               input-debounce="0"
-              label="Значение" style="width: 250px")
+              label="Значение" )
           q-btn(:disable="!varModel" label="Добавить значение" @click="addValue()").full-width
         q-list(bordered padding v-if="values.length > 0")
           q-item-label(header ) Добавленные значения:
@@ -38,9 +37,15 @@
             q-item-section
               q-item-label
                 b {{value.value.name}}
-              q-item-label.grey -{{value.target.text}}-
-    input#document(type="file")
-    #output.shadow-3(@click="selectBlock" @mouseup="stopSelect()")
+              q-item-label.grey -{{value.target.text}}
+
+    .example-1
+      .form-group
+        label.labelx
+          input#document(type="file")
+          i.material-icons attach_file
+    q-input(type="text" v-model="templateName" label="Имя шаблона").paper-name
+    #output.shadow-3(@click="selectBlock" @mouseup="stopSelect()").paper
 
 </template>
 
@@ -219,19 +224,33 @@ export default {
 </script>
 
 <style lang="stylus">
-a:any-link
-  pointer-events none !important
-  display none
-  color red!important
-  font-size 29px
+.example-1 .form-group{padding:1em;margin:1em}
+.example-1 input[type=file]{outline:0;opacity:0;pointer-events:none;user-select:none}
+.example-1 .labelx{width:120px; height:120px; border:2px dashed grey;border-radius:5px;display:block;padding:1.2em;transition:border 300ms ease;cursor:pointer;text-align:center}
+.example-1 .labelx i{display:block;font-size:42px;padding-bottom:16px}
+.example-1 .label i,.example-1 .label .title{color:grey;transition:200ms color}
+.example-1 .label:hover{border:2px solid #000}
+.example-1 .label:hover i,.example-1 .label:hover .title{color:#000}
 .expert
-  background-color #666666
+  background-color #cbcbcb
   display flex
   flex-direction column
   justify-content center
   align-items center
   width 100%
   padding-top 3rem
+  .paper-name
+    background-color floralwhite
+    width 720px
+    padding-left 24px
+  .paper
+    background-color white
+    width 720px
+  a:any-link
+    pointer-events none !important
+    display none
+    color red!important
+    font-size 29px
   td
     pointer-events none
   td
@@ -239,16 +258,19 @@ a:any-link
   .editText
     padding 10px
     font-size .8em
+
   #output
     cursor pointer
-    background-color white
-    max-width 720px
     padding 24px
     display flex
     flex-direction column
   #output > :hover
     background-color ghostwhite
 
+  .selected:selection { color: red; }
   .selected
-    background-color yellow!important
+    background-color yellowgreen!important
+#document
+  height 100px!important
+  width 100px!important
 </style>

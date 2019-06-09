@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
     "dev": "DEV=true quasar dev",
-    "build": "DEV=false quasar build -m ssr",
+    "build": "DEV=false quasar build",
     "spa": "quasar build ",
     "i": "NODE_ENV=production npm i",
     "pre": "prettier --single-quote src/**/* --write",
