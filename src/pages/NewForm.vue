@@ -10,6 +10,8 @@
         q-card-actions(align="right" class="text-primary")
           q-btn(flat label="Сохранить" v-close-popup @click="finishEdit()")
           q-btn(flat label="Отмена" v-close-popup )
+    p Имя шаблона
+    q-input(type="text" v-model="templateName")
     q-drawer(
       v-model="drawer"
       :width="200"
@@ -71,6 +73,7 @@ export default {
       selectedEl: null,
       editText: '',
       target: '',
+      templateName:'',
       values: []
     }
   },
