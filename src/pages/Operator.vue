@@ -1,7 +1,19 @@
 <template lang="pug">
   .operator
-    forms-list
-    #output
+    template(v-if="!selected")
+      forms-list
+    template(v-else)
+      .half
+        .answers
+          q-list(bordered padding)
+            q-item-label(header) Переменных: {{selected.values.length}}
+            q-item(v-for="v in selected.values")
+              q-item-section
+                q-item-label
+                b {{v.value.question}}
+              q-input(outlined v-model="text" :label="v.value.name")
+                //q-item-label.grey Элементов {{v.values.length}}
+        #output
 </template>
 
 <script>
@@ -24,6 +36,7 @@ export default {
   onFlow: {
     'dash.selectForm'(v) {
       this.selected = v
+
       if (!v) return
       this.last = v
       let doc = new DOMParser().parseFromString(v.doc, 'text/html')
@@ -77,10 +90,15 @@ export default {
   width 100%
   padding-top 3rem
 
+  .half
+    display flex
+    .answers
+      background-color yellow
+      height 100%
+      width 40%
   #output
     max-width 720px
     padding 24px
-
   #output > :hover
     background-color ghostwhite
 
