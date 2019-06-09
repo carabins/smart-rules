@@ -57,17 +57,9 @@ export default {
   name: 'Operator',
   data() {
     return {
-<<<<<<< HEAD
-      contractNumber:"№111111",
-      contractDate:"01.01.2019",
-      city : 'Крыжопль',
-      customerOrganization : "ооо огого",
-      customerRepresentative : "boss",
-=======
       contractNumber: '№111111',
       contractDate: '01.01.2019',
       city: '',
->>>>>>> d1309b2495d1e0801c89ca546819fae14388c545
       name: null,
       age: null,
       accept: false,
