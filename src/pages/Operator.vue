@@ -42,8 +42,16 @@ export default {
   methods: {
     changed(o){
       let el = document.getElementById(o.target.rune)
-      //result=el.textContent.substring(0,target.s).concat(o.mod).concat(el.textContent.substring(target.s))
-      el.textContent = o.mod
+
+    //  zesult.concat(o.mod)
+      //.concat(el.textContent.substring(target.s))
+      console.log("**o.target.rune**"+o.target.rune)
+      console.log("**el**"+el)
+      let str1=''+el.innerHTML 
+      console.log(str1);
+      let result=str1.substring(0,o.target.s)+o.mod+str1.substring(o.target.e, str1.length)
+      el.textContent = result
+
     },
     editDoc(id, text, s, e) {
     }
