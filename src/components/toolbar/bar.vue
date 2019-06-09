@@ -2,7 +2,6 @@
   .navigator
     .navigator.fly
       .navigator.back(:class="{fhide, show:!fhide, hide:fhide}")
-      //transition(appear duration="1000" name="fade")
       .cona(:is="barName" :class="{fhide}")
       q-btn.btn-logo(round flat to="/")
         template(v-if="rotate")
@@ -24,7 +23,8 @@ export default {
     lockHide: false,
     fhide: false,
     rotate: false
-  }),
+  })
+  ,
   onFlow: {
     'dash.barLockHide'(v) {
       this.lockHide = v

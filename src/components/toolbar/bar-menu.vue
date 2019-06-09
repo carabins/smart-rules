@@ -19,7 +19,7 @@
           .gt-xs Эксперт
           .xs О.
         q-route-tab(
-        to="/"
+        to="/operator"
         no-caps
         exact
         )
@@ -27,15 +27,20 @@
           .xs Д.
       q-space
       q-btn-group(flat)
-        //q-btn.guest-btn( v-if="user" round icon="add"  to="/new")
-        q-btn.guest-btn(flat :color='user?"primary":"secondary"' round icon="account_circle"  @click="$f.soul.dialogLogin(true)")
+        q-btn(flat v-if="canEnd" round color="primary" icon="check" @click="$f.docs.doEnd(true)")
+        //div ???+_
+
+        //q-btn(icon="account_circle" to="/expert")
+        //q-btn.guest-btn(flat :color='user?"primary":"secondary"' round icon="account_circle"  @click="$f.soul.dialogLogin(true)")
+        //q-btn.guest-btn(flat :color='user?"primary":"secondary"' round icon="account_circle"  @click="$f.soul.dialogLogin(true)")
 </template>
 
 <script>
 export default {
   name: 'bar-menu',
   mapFlow: {
-    user: 'soul.user'
+    user: 'soul.user',
+    canEnd: 'docs.canEnd'
   }
 }
 </script>

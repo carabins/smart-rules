@@ -8,16 +8,13 @@
           q-input( filled
           autogrow dense v-model="editText" autofocus @keyup.enter="prompt = false")
         q-card-actions(align="right" class="text-primary")
-          q-btn(flat label="Сохранить" v-close-popup )
+          q-btn(flat label="Сохранить" v-close-popup @click="finishEdit()")
           q-btn(flat label="Отмена" v-close-popup )
-
     q-drawer(
       v-model="drawer"
       :width="200"
-      :breakpoint="500"
-      ).shadow-1
-      q-scroll-area.fit
-        //.editText {{editText}
+      :breakpoint="500")
+      q-scroll-area.fit.shadow-13
         q-btn(label="Править текст" @click="justEditText()").full-width
         q-btn-group(flat).full-width
           q-btn(flat icon="format_align_left")
@@ -33,6 +30,13 @@
               input-debounce="0"
               label="Значение" style="width: 250px")
           q-btn(:disable="!varModel" label="Добавить значение" @click="addValue()").full-width
+        q-list(bordered padding v-if="values.length > 0")
+          q-item-label(header ) Добавленные значения:
+          q-item(clickable v-ripple v-for="value in values")
+            q-item-section
+              q-item-label
+                b {{value.value.name}}
+              q-item-label.grey -{{value.target.text}}-
     input#document(type="file")
     #output.shadow-3(@click="selectBlock" @mouseup="stopSelect()")
 
@@ -40,6 +44,7 @@
 
 <script>
 import Vue from 'vue'
+import { newRune } from '../aof/soul'
 let AnchoredHeading = Vue.component('anchored-heading', {
   render: function(h) {
     return h('div', this.level)
@@ -65,7 +70,8 @@ export default {
       editPrompt: false,
       selectedEl: null,
       editText: '',
-      target: ''
+      target: '',
+      values: []
     }
   },
   components: { AnchoredHeading },
@@ -73,6 +79,21 @@ export default {
     vars: 'docs.vars'
   },
   onFlow: {
+    'docs.doEnd'(){
+      console.log("?")
+      this.$f.docs.canEnd(false)
+      this.$f.docs.forms.mutate(l=>{
+        let doc =  document.getElementById('output').innerHTML
+        console.log(doc)
+        l.push({
+          name:"Новая форма",
+          doc,
+          values: this.values
+        })
+        return l
+      })
+      this.$router.push("/expert")
+    },
     'docs.last'(v) {
       if (!v) return
       this.last = v
@@ -141,18 +162,29 @@ export default {
       let selection = window.getSelection()
       if (this.selectedEl && this.selectedEl.textContent) {
         let ttt = this.selectedEl.textContent
-        this.target = ttt.slice(selection.anchorOffset, selection.focusOffset)
+        let target = {
+          s: selection.anchorOffset,
+          e: selection.focusOffset,
+          text: ttt.slice(selection.anchorOffset, selection.focusOffset)
+        }
+        if (target.e - target.s > 1) {
+          this.target = target
+        } else {
+          this.target = null
+        }
       }
     },
     formatAlign(algin) {
       switch (algin) {
         case 'right':
           this.selectedEl.style.alignSelf = 'flex-end'
-        //console.log()
       }
     },
     justEditText() {
       this.editPrompt = true
+    },
+    finishEdit(){
+      this.selectedEl.textContent = this.editText
     },
     selectBlock(e) {
       let t = e.target
@@ -166,6 +198,17 @@ export default {
     },
     addValue() {
       console.log(this.varModel)
+      console.log(this.target)
+      let rune = newRune(8)
+      this.selectedEl.id = rune
+      this.target.rune = rune
+      this.values.push({
+        value: this.varModel,
+        target: this.target
+      })
+      if (this.values.length>1) {
+        this.$f.docs.canEnd(true)
+      }
     }
   }
 }
@@ -178,6 +221,7 @@ a:any-link
   color red!important
   font-size 29px
 .expert
+  background-color #666666
   display flex
   flex-direction column
   justify-content center
@@ -192,6 +236,8 @@ a:any-link
     padding 10px
     font-size .8em
   #output
+    cursor pointer
+    background-color white
     max-width 720px
     padding 24px
     display flex
