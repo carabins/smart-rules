@@ -17,16 +17,45 @@
         q-btn(label="Submit" type="submit" color="primary")
         q-btn(label="Reset" type="reset" color="primary" flat class="q-ml-sm")
     .variablesForm
-      <div id="app-6">
+
       q-input(filled
       type="text"
         v-model="contractNumber"
-        label="contractNumber *"
-        lazy-rules :rules="[val => val !== null && val !== '' || 'Please type your password',val => val > 6 && val < 100 || 'Please type a password']")
-      </div>
+        label="Введите номер контракта *"
+        lazy-rules :rules="[val => val !== null && val !== '' || 'Введите номер контракта',val => val > 6 && val < 100 || 'Введите номер контракта']")
+      q-input(filled
+        type="text"
+          v-model="contractDate"
+          label="Введите дату заключения контракта *"
+          lazy-rules :rules="[val => val !== null && val !== '' || 'Введите дату заключения контракта',val => val > 6 && val < 100 || 'Введите дату заключения контракта']")
+      p Выбирите город заключения контракта
+      q-btn-dropdown(
+      color="primary"
+      label="Dropdown"
+      v-model="city"
+      )
+        <q-list link>
+          <q-item clickable v-class-popup >
+            <q-item-main>
+              <q-item-tile label>Ростов на дону</q-item-tile>
+            </q-item-main>
+          </q-item>
+          <q-item clickable v-class-popup>
+            <q-item-main>
+              <q-item-tile label>Ейск</q-item-tile>
+            </q-item-main>
+          </q-item>
+          <q-item clickable v-class-popup>
+            <q-item-main>
+              <q-item-tile label>Таганрог</q-item-tile>
+            </q-item-main>
+          </q-item>
+        </q-list>
 
     .previewForm
        p {{contractNumber}}
+       p {{contractDate}}
+       p {{city}}
 </template>
 
 <script>
@@ -35,7 +64,9 @@ export default {
   name: 'Operator',
   data() {
     return {
-      contractNumber:"hhhhhh",
+      contractNumber:"№111111",
+      contractDate:"01.01.2019",
+      city : '',
       name: null,
       age: null,
       accept: false,
@@ -74,6 +105,9 @@ export default {
           message: 'Submitted'
         })
       }
+    },
+    chooseCity(){
+
     },
     onReset() {
       this.name = null
