@@ -11,7 +11,8 @@ const routes = [
   }),
   SyncRunedRoute('/doc', () => import('pages/Doc.vue'), l, {}),
   SyncRunedRoute('/expert/new', () => import('pages/NewForm.vue'), l, {}),
-  SyncRunedRoute('/expert', () => import('pages/Expert.vue'), l, {})
+  SyncRunedRoute('/expert', () => import('pages/Expert.vue'), l, {}),
+  SyncRunedRoute('/operator', () => import('pages/Operator.vue'), l, {})
   //SyncRunedRoute('/new', () => import('pages/New.vue'), l, {
   //  //effect: f => f.coins.filter('detected'),
   //  //ssrSync: 'coins.detected'
