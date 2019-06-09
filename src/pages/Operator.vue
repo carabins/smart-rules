@@ -18,11 +18,9 @@ export default {
   components: { FormsList },
   data() {
     return {
-      contractNumber: '№111111',
-      contractDate: '01.01.2019',
-      city: '',
-      name: null,
-      age: null,
+
+
+
       accept: false,
       last: '',
       selected: null
@@ -44,6 +42,7 @@ export default {
   methods: {
     changed(o){
       let el = document.getElementById(o.target.rune)
+      //result=el.textContent.substring(0,target.s).concat(o.mod).concat(el.textContent.substring(target.s))
       el.textContent = o.mod
     },
     editDoc(id, text, s, e) {
@@ -71,7 +70,7 @@ export default {
     //    })
     //  }
     //},
-    //chooseCity() {},
+
     //onReset() {
     //  this.name = null
     //  this.age = null
@@ -89,16 +88,17 @@ export default {
   align-items center
   width 100%
   padding-top 3rem
+  margin : 3em
 
-  .half
+.half
     display flex
     .answers
       /*background-color yellow*/
       height 100%
-      width 100%
+      width 40%
       display flex
       flex-direction column
-      .answer
+    .answer
         width 100%
         display flex
         flex-direction column
@@ -108,7 +108,7 @@ export default {
 
   #output
     max-width 720px
-    padding 24px
+    padding 24px 0px 24px 24px
   #output > :hover
     background-color ghostwhite
 
