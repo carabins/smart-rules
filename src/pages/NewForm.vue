@@ -13,32 +13,38 @@
           q-btn(flat label="Отмена" v-close-popup )
     q-drawer(
       v-model="drawer"
-      :width="200"
+      :width="240" bordered elevated
       :breakpoint="500")
       q-scroll-area.fit.shadow-13
-        q-btn(label="Править текст" @click="justEditText()").full-width
-        q-btn-group(flat).full-width
-          q-btn(flat icon="format_align_left")
-          q-btn(flat icon="format_align_center")
-          q-btn(flat icon="format_align_right" @click="formatAlign('right')")
+        template(v-if="!editText")
+          .notion Выберите блок
+        template(v-else)
+          q-btn(label="Править текст" @click="justEditText()").full-width
+          q-btn-group(flat).full-width
+            q-btn(flat icon="format_align_left")
+            q-btn(flat icon="format_align_center")
+            q-btn(flat icon="format_align_right" @click="formatAlign('right')")
 
-        template(v-if="target")
-          .editText Новое значение:
-            q-select(
-              v-model='varModel'
-              :options="vars"
-              option-label="name"
-              input-debounce="0"
-              label="Значение" )
-          q-btn(:disable="!varModel" label="Добавить значение" @click="addValue()").full-width
-        q-list(bordered padding v-if="values.length > 0")
-          q-item-label(header ) Добавленные значения:
-          q-item(clickable v-ripple v-for="value in values")
-            q-item-section
-              q-item-label
-                b {{value.value.name}}
-              q-item-label.grey -{{value.target.text}}
 
+          template(v-if="!target")
+            .notion Выберделите текст
+          template(v-else)
+          q-list(bordered padding )
+            q-item-label(header ) Добавленные значения:
+            q-expansion-item(v-for="value in vars"
+              group="somegroup"
+              :caption="value.question"
+              :label="value.name")
+              q-card
+                q-card-section
+                  q-select( v-model="value.tags"
+                          :options="tags"
+                          color='secondary'
+                          use-input use-chips multiple
+                          input-debounce="0").fa-bold.text-bold
+                q-card-section
+                  q-btn(label="Справочники" no-caps).full-width
+                  q-btn(label="Добавить" no-caps color='secondary' ).full-width
     .example-1
       .form-group
         label.labelx
@@ -68,6 +74,7 @@ export default {
   name: 'Expert',
   data() {
     return {
+      tags:['Оповещать о изменениях', 'Привязка к справочникам', 'Только заголовок', 'Нормативные документы'],
       varModel: null,
       name: null,
       age: null,
@@ -78,7 +85,7 @@ export default {
       selectedEl: null,
       editText: '',
       target: '',
-      templateName:'',
+      templateName: '',
       values: []
     }
   },
@@ -273,4 +280,7 @@ export default {
 #document
   height 100px!important
   width 100px!important
+.notion
+  padding 13px
+  font-weight bold
 </style>
