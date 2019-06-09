@@ -29,33 +29,27 @@
           label="Введите дату заключения контракта *"
           lazy-rules :rules="[val => val !== null && val !== '' || 'Введите дату заключения контракта',val => val > 6 && val < 100 || 'Введите дату заключения контракта']")
       p Выбирите город заключения контракта
-      q-btn-dropdown(
-      color="primary"
-      label="Dropdown"
-      v-model="city"
-      )
-        <q-list link>
-          <q-item clickable v-class-popup >
-            <q-item-main>
-              <q-item-tile label>Ростов на дону</q-item-tile>
-            </q-item-main>
-          </q-item>
-          <q-item clickable v-class-popup>
-            <q-item-main>
-              <q-item-tile label>Ейск</q-item-tile>
-            </q-item-main>
-          </q-item>
-          <q-item clickable v-class-popup>
-            <q-item-main>
-              <q-item-tile label>Таганрог</q-item-tile>
-            </q-item-main>
-          </q-item>
-        </q-list>
+      q-select(
+       v-model="city"
+       :options=['Ростов на Дону','Ейск','Таганрог']
+        )
+      p Выбирите организацию
+      q-select(
+         v-model="customerOrganization"
+         :options=['Рога и копыта','12 стульев','На провал']
+        )
+      p Выбирите представителя организации
+      q-select(
+         v-model="customerRepresentative"
+         :options=['директор Иванов И.И,','замдиректора Петров П.П.','завхоз Сидоров С.С.']
+        )
 
     .previewForm
        p {{contractNumber}}
        p {{contractDate}}
        p {{city}}
+       p {{customerOrganization}}
+       p {{customerRepresentative}}
 </template>
 
 <script>
@@ -63,9 +57,17 @@ export default {
   name: 'Operator',
   data() {
     return {
+<<<<<<< HEAD
+      contractNumber:"№111111",
+      contractDate:"01.01.2019",
+      city : 'Крыжопль',
+      customerOrganization : "ооо огого",
+      customerRepresentative : "boss",
+=======
       contractNumber: '№111111',
       contractDate: '01.01.2019',
       city: '',
+>>>>>>> d1309b2495d1e0801c89ca546819fae14388c545
       name: null,
       age: null,
       accept: false,
