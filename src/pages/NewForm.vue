@@ -1,24 +1,38 @@
 <template lang="pug">
   .expert
+    q-dialog(v-model="editPrompt" persistent)
+      q-card(style="min-width: 400px")
+        q-card-section
+          .column Your address
+        q-card-section
+          q-input( filled
+          autogrow dense v-model="editText" autofocus @keyup.enter="prompt = false")
+        q-card-actions(align="right" class="text-primary")
+          q-btn(flat label="Сохранить" v-close-popup )
+          q-btn(flat label="Отмена" v-close-popup )
+
     q-drawer(
       v-model="drawer"
       :width="200"
       :breakpoint="500"
       ).shadow-1
       q-scroll-area.fit
-        .editText {{editText}}
+        //.editText {{editText}
         q-btn(label="Править текст" @click="justEditText()").full-width
         q-btn-group(flat).full-width
           q-btn(flat icon="format_align_left")
           q-btn(flat icon="format_align_center")
           q-btn(flat icon="format_align_right" @click="formatAlign('right')")
-        q-select(
-          v-model='varModel'
-          :options="vars"
-          option-label="name"
-          input-debounce="0"
-          label="Simple filter" style="width: 250px")
 
+        template(v-if="target")
+          .editText Новое значение:
+            q-select(
+              v-model='varModel'
+              :options="vars"
+              option-label="name"
+              input-debounce="0"
+              label="Значение" style="width: 250px")
+          q-btn(:disable="!varModel" label="Добавить значение" @click="addValue()").full-width
     input#document(type="file")
     #output.shadow-3(@click="selectBlock" @mouseup="stopSelect()")
 
@@ -48,6 +62,7 @@ export default {
       accept: false,
       last: '',
       drawer: true,
+      editPrompt: false,
       selectedEl: null,
       editText: '',
       target: ''
@@ -124,9 +139,10 @@ export default {
     },
     stopSelect() {
       let selection = window.getSelection()
-      console.log({ selection })
-      let ok = this.selectedEl.textContent
-      this.target = ok.slice(selection.anchorOffset, selection.focusOffset)
+      if (this.selectedEl && this.selectedEl.textContent) {
+        let ttt = this.selectedEl.textContent
+        this.target = ttt.slice(selection.anchorOffset, selection.focusOffset)
+      }
     },
     formatAlign(algin) {
       switch (algin) {
@@ -135,7 +151,9 @@ export default {
         //console.log()
       }
     },
-    justEditText() {},
+    justEditText() {
+      this.editPrompt = true
+    },
     selectBlock(e) {
       let t = e.target
       if (t.id === 'output') return
@@ -143,35 +161,11 @@ export default {
         this.selectedEl.classList.remove('selected')
       }
       this.selectedEl = t
-
-      if (t.textContent && t.textContent.length > 200) {
-        this.editText = t.textContent.slice(0, 200) + '...'
-      } else {
-        this.editText = t.textContent
-      }
+      this.editText = t.textContent
       t.classList.add('selected')
     },
-    onSubmit() {
-      if (this.accept !== true) {
-        this.$q.notify({
-          color: 'red-5',
-          textColor: 'white',
-          icon: 'fas fa-exclamation-triangle',
-          message: 'You need to accept the license and terms first'
-        })
-      } else {
-        this.$q.notify({
-          color: 'green-4',
-          textColor: 'white',
-          icon: 'fas fa-check-circle',
-          message: 'Submitted'
-        })
-      }
-    },
-    onReset() {
-      this.name = null
-      this.age = null
-      this.accept = false
+    addValue() {
+      console.log(this.varModel)
     }
   }
 }
