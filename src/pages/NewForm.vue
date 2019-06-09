@@ -86,7 +86,7 @@ export default {
       console.log('?')
       this.$f.docs.canEnd(false)
       this.$f.docs.forms.mutate(l => {
-        let doc = document.getElementById('output').innerHTML
+        let doc = document.getElementById('output').outerHTML
         console.log(doc)
         l.push({
           name: 'Новая форма',
@@ -95,6 +95,7 @@ export default {
         })
         return l
       })
+
       this.$router.push('/expert')
     },
     'docs.last'(v) {

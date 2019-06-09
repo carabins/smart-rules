@@ -5,14 +5,9 @@
     template(v-else)
       .half
         .answers
-          q-list(bordered padding)
-            q-item-label(header) Переменных: {{selected.values.length}}
-            q-item(v-for="v in selected.values")
-              q-item-section
-                q-item-label
-                b {{v.value.question}}
-              q-input(outlined v-model="text" :label="v.value.name")
-                //q-item-label.grey Элементов {{v.values.length}}
+          .answer(v-for="v in selected.values")
+            b {{v.value.question}}
+            q-input(outlined v-model="v.mod" @change="changed(v)" :label="v.value.name")
         #output
 </template>
 
@@ -36,7 +31,6 @@ export default {
   onFlow: {
     'dash.selectForm'(v) {
       this.selected = v
-
       if (!v) return
       this.last = v
       let doc = new DOMParser().parseFromString(v.doc, 'text/html')
@@ -48,6 +42,12 @@ export default {
   },
 
   methods: {
+    changed(o){
+      let el = document.getElementById(o.target.rune)
+      el.textContent = o.mod
+    },
+    editDoc(id, text, s, e) {
+    }
     //selectBlock(e) {
     //  //document.getElementById("x").childNodes
     //  //e.target.classList.add('selected')
@@ -93,9 +93,19 @@ export default {
   .half
     display flex
     .answers
-      background-color yellow
+      /*background-color yellow*/
       height 100%
-      width 40%
+      width 100%
+      display flex
+      flex-direction column
+      .answer
+        width 100%
+        display flex
+        flex-direction column
+        margin 4px
+        /*background-color #666666*/
+
+
   #output
     max-width 720px
     padding 24px
