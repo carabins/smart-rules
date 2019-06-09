@@ -27,24 +27,25 @@
 
 
           template(v-if="!target")
-            .notion Выберделите текст
+            .notion Выделите текст
           template(v-else)
-          q-list(bordered padding )
-            q-item-label(header ) Добавленные значения:
-            q-expansion-item(v-for="value in vars"
-              group="somegroup"
-              :caption="value.question"
-              :label="value.name")
-              q-card
-                q-card-section
-                  q-select( v-model="value.tags"
-                          :options="tags"
-                          color='secondary'
-                          use-input use-chips multiple
-                          input-debounce="0").fa-bold.text-bold
-                q-card-section
-                  q-btn(label="Справочники" no-caps).full-width
-                  q-btn(label="Добавить" no-caps color='secondary' ).full-width
+            q-list(bordered padding)
+              q-item-label(header) Добавленные значения:
+                .ok-cont {{values.length}}
+              q-expansion-item(v-for="value in vars"
+                group="somegroup"
+                :caption="value.question"
+                :label="value.name")
+                q-card
+                  q-card-section
+                    q-select(v-model="value.tags"
+                            :options="tags"
+                            color='secondary'
+                            use-input use-chips multiple
+                            input-debounce="0").fa-bold.text-bold
+                  q-card-section
+                    q-btn(label="Справочники" no-caps).full-width
+                    q-btn(label="Добавить" no-caps color='secondary' @click="addValue()").full-width
     .example-1
       .form-group
         label.labelx
@@ -213,8 +214,6 @@ export default {
       t.classList.add('selected')
     },
     addValue() {
-      console.log(this.varModel)
-      console.log(this.target)
       let rune = newRune(8)
       this.selectedEl.id = rune
       this.target.rune = rune
@@ -225,6 +224,10 @@ export default {
       if (this.values.length > 1) {
         this.$f.docs.canEnd(true)
       }
+      this.target = null
+
+      console.log("???? wtf?")
+
     }
   }
 }
@@ -276,11 +279,15 @@ export default {
 
   .selected:selection { color: red; }
   .selected
-    background-color yellowgreen!important
+    background-color yellow!important
 #document
   height 100px!important
   width 100px!important
 .notion
   padding 13px
   font-weight bold
+.ok-cont
+  padding-top 10px
+  color #222222
+  font-size 30px
 </style>

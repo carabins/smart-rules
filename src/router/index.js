@@ -14,9 +14,6 @@ export default function() {
   const Router = new VueRouter({
     scrollBehavior: () => ({ y: 0 }),
     routes,
-    mode: 'history',
-    base: process.env.VUE_ROUTER_BASE
   })
-
   return Router
 }
