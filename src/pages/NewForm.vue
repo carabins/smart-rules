@@ -4,7 +4,7 @@
       v-model="drawer"
       :width="200"
       :breakpoint="500"
-      show-if-above).shadow-1
+      ).shadow-1
       q-scroll-area.fit
         .editText {{editText}}
         q-btn(label="Править текст" @click="justEditText()").full-width
@@ -12,27 +12,15 @@
           q-btn(flat icon="format_align_left")
           q-btn(flat icon="format_align_center")
           q-btn(flat icon="format_align_right" @click="formatAlign('right')")
-        q-list(padding).menu-list
-          q-item(clickable v-ripple)
-            q-item-section(avatar)
-              q-icon(name="inbox")
-            q-item-section Inbox
-          q-item(active clickable v-ripple)
-            q-item-section(avatar)
-              q-icon(name="star")
-          q-btn-dropdown(color="primary" label="Dropdown Button")
-            q-list
-              q-item(clickable v-close-popup)
-                q-item-section
-                  q-item-label Photos
-              q-item(clickable v-close-popup)
-                q-item-section
-                  q-item-label Videos
-              q-item(clickable v-close-popup)
-                q-item-section
-                  q-item-label Articles
+        q-select(
+          v-model='varModel'
+          :options="vars"
+          option-label="name"
+          input-debounce="0"
+          label="Simple filter" style="width: 250px")
+
     input#document(type="file")
-    #output.shadow-3(@click="selectBlock")
+    #output.shadow-3(@click="selectBlock" @mouseup="stopSelect()")
 
 </template>
 
@@ -54,16 +42,21 @@ export default {
   name: 'Expert',
   data() {
     return {
+      varModel: null,
       name: null,
       age: null,
       accept: false,
       last: '',
       drawer: true,
       selectedEl: null,
-      editText: ""
+      editText: '',
+      target: ''
     }
   },
   components: { AnchoredHeading },
+  mapFlow: {
+    vars: 'docs.vars'
+  },
   onFlow: {
     'docs.last'(v) {
       if (!v) return
@@ -114,26 +107,45 @@ export default {
     }
   },
   methods: {
-    formatAlign(algin){
+    filterFn(val, update) {
+      if (val === '') {
+        update(() => {
+          this.options = stringOptions
+        })
+        return
+      }
+
+      update(() => {
+        const needle = val.toLowerCase()
+        this.options = stringOptions.filter(
+          v => v.toLowerCase().indexOf(needle) > -1
+        )
+      })
+    },
+    stopSelect() {
+      let selection = window.getSelection()
+      console.log({ selection })
+      let ok = this.selectedEl.textContent
+      this.target = ok.slice(selection.anchorOffset, selection.focusOffset)
+    },
+    formatAlign(algin) {
       switch (algin) {
-        case "right":
-          this.selectedEl.style.alignSelf = "flex-end"
-          console.log(this.editText)
+        case 'right':
+          this.selectedEl.style.alignSelf = 'flex-end'
+        //console.log()
       }
     },
-    justEditText() {
-    },
+    justEditText() {},
     selectBlock(e) {
       let t = e.target
-      if (t.id === "output")
-          return
+      if (t.id === 'output') return
       if (this.selectedEl) {
         this.selectedEl.classList.remove('selected')
       }
       this.selectedEl = t
 
       if (t.textContent && t.textContent.length > 200) {
-        this.editText = t.textContent.slice(0, 200) + "..."
+        this.editText = t.textContent.slice(0, 200) + '...'
       } else {
         this.editText = t.textContent
       }
@@ -195,5 +207,4 @@ a:any-link
 
   .selected
     background-color yellow!important
-
 </style>

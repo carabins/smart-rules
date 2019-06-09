@@ -18,7 +18,7 @@ module.exports = function(ctx) {
     ],
 
     framework: {
-      all: true,
+      all: true
     },
 
     supportIE: false,

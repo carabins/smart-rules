@@ -59,22 +59,21 @@
 </template>
 
 <script>
-
 export default {
   name: 'Operator',
   data() {
     return {
-      contractNumber:"№111111",
-      contractDate:"01.01.2019",
-      city : '',
+      contractNumber: '№111111',
+      contractDate: '01.01.2019',
+      city: '',
       name: null,
       age: null,
       accept: false,
       last: ''
     }
   },
-  onFlow:{
-    'docs.last'(v){
+  onFlow: {
+    'docs.last'(v) {
       //console.log({v})
       if (!v) return
       //document.getElementById('output').innerHTML = v
@@ -83,10 +82,10 @@ export default {
   },
 
   methods: {
-    selectBlock(e){
+    selectBlock(e) {
       //document.getElementById("x").childNodes
       //e.target.classList.add('selected')
-      console.log(e.target.style.display = 'hidden')
+      console.log((e.target.style.display = 'hidden'))
       //console.log(e.target.classList.add('selected'))
     },
     onSubmit() {
@@ -106,9 +105,7 @@ export default {
         })
       }
     },
-    chooseCity(){
-
-    },
+    chooseCity() {},
     onReset() {
       this.name = null
       this.age = null
@@ -137,5 +134,4 @@ export default {
   .selected
     background-color yellow
     visibility hidden !important
-
 </style>
