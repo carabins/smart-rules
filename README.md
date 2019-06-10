@@ -1,6 +1,4 @@
-# Quasar App
-
-> Hackaton result
+# Hackaton result
 
 https://docturne.unq.onl/#/
 
