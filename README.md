@@ -1,4 +1,4 @@
-# Hackaton result
+# Hackathon result
 
 https://docturne.unq.onl/#/
 
