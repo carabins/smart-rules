@@ -2,7 +2,7 @@
 
 https://docturne.unq.onl/#/
 
-[Presentation] (https://github.com/carabins/smart-rules/blob/master/Умное%20Управление.pdf)
+[Presentation](https://github.com/carabins/smart-rules/blob/master/Умное%20Управление.pdf)
 
 
 ↓ just videos
